@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Malkurs – Aquarell, Acryl & Zeichnung. Kleine Gruppen, professionelle Anleitung, kreative Atmosphäre. Buche deinen Termin direkt über den Kalender." />
+  <title>Malkurs Atelier Lichtspur</title>
+
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --line: rgba(255,255,255,.14);
+      --accent: #7ee8fa;
+      --accent2: #a6ffcb;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 22px;
+      --radius2: 14px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1100px 650px at 12% 15%, rgba(126,232,250,.22), transparent 55%),
+        radial-gradient(950px 550px at 85% 8%, rgba(166,255,203,.20), transparent 55%),
+        radial-gradient(900px 700px at 55% 110%, rgba(120,140,255,.14), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
+
+    /* Header */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(11,15,20,.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: .95rem 0;
+      gap: 1rem;
+    }
+    .brand{
+      display:flex; align-items:center; gap:.75rem;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width: 38px; height: 38px; border-radius: 12px;
+      background:
+        radial-gradient(18px 18px at 25% 30%, rgba(126,232,250,.95), transparent 60%),
+        radial-gradient(22px 22px at 70% 65%, rgba(166,255,203,.92), transparent 55%),
+        radial-gradient(36px 36px at 50% 50%, rgba(255,255,255,.18), transparent 60%),
+        rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+    }
+    .brand strong{ font-weight: 720; }
+    .brand span{ color: var(--muted); font-weight: 520; }
+
+    .links{ display:flex; align-items:center; gap: .95rem; }
+    .links a{
+      color: var(--muted);
+      padding: .55rem .7rem;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
+      font-weight: 560;
+      letter-spacing: .15px;
+    }
+    .links a:hover{ color: var(--text); border-color: var(--line); background: rgba(255,255,255,.04); }
+
+    .cta{
+      display:flex; gap:.65rem; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:.55rem;
+      padding: .65rem .9rem;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight: 650;
+      transition: .18s ease;
+      box-shadow: 0 12px 28px rgba(0,0,0,.25);
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(126,232,250,.22), rgba(166,255,203,.18));
+      border-color: rgba(126,232,250,.35);
+    }
+
+    .menuBtn{
+      display:none;
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 3.6rem 0 2.2rem;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .9fr;
+      gap: 1.35rem;
+      align-items: stretch;
+    }
+    .panel{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadow);
+    }
+    .heroLeft{ padding: 2.2rem 2.1rem 2rem; position: relative; overflow:hidden; }
+    .kicker{
+      display:inline-flex; align-items:center; gap:.6rem;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      padding: .4rem .7rem;
+      border-radius: 999px;
+      font-weight: 620;
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(126,232,250,.9));
+      box-shadow: 0 0 0 4px rgba(126,232,250,.12);
+    }
+    h1{
+      margin: .95rem 0 .55rem;
+      font-size: clamp(2.1rem, 2.7vw + 1rem, 3.25rem);
+      line-height: 1.12;
+      letter-spacing: .2px;
+    }
+    .lead{
+      margin: 0 0 1.25rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 56ch;
+    }
+    .heroActions{
+      display:flex; flex-wrap: wrap;
+      gap: .75rem;
+      margin: 1.1rem 0 1.25rem;
+    }
+    .meta{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap: .75rem;
+      margin-top: 1.05rem;
+    }
+    .pill{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      padding: .85rem .95rem;
+      min-height: 72px;
+    }
+    .pill strong{ display:block; font-weight: 720; }
+    .pill span{ display:block; color: var(--muted); font-weight: 560; margin-top:.15rem; }
+
+    .heroRight{
+      padding: 1.4rem;
+      display:flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+    .miniCard{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      padding: 1.05rem 1.05rem;
+    }
+    .miniCard h3{ margin:.1rem 0 .35rem; font-size: 1.05rem; letter-spacing:.2px; }
+    .miniCard p{ margin:.25rem 0 0; color: var(--muted); }
+    .swatches{
+      display:flex; gap:.55rem; margin-top: .75rem; flex-wrap: wrap;
+    }
+    .swatch{
+      width: 28px; height: 28px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      position: relative;
+      overflow:hidden;
+    }
+    .swatch::after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 30% 35%, rgba(126,232,250,.9), transparent 55%),
+                  radial-gradient(circle at 70% 70%, rgba(166,255,203,.85), transparent 58%),
+                  radial-gradient(circle at 55% 45%, rgba(255,120,210,.40), transparent 55%);
+      transform: rotate(12deg);
+      opacity: .95;
+    }
+
+    /* Sections */
+    section{ padding: 2.1rem 0; }
+    .sectionHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.15rem;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size: clamp(1.4rem, 1.2vw + 1rem, 2rem);
+      letter-spacing: .2px;
+    }
+    .sectionHead p{
+      margin:0;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+    .card{
+      grid-column: span 4;
+      padding: 1.25rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
+    }
+    .card h3{ margin: .2rem 0 .45rem; }
+    .card p{ margin: .25rem 0 0; color: var(--muted); }
+    .icon{
+      width: 42px; height: 42px; border-radius: 14px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      margin-bottom: .75rem;
+    }
+    .icon svg{ opacity: .92; }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .split .panel{ padding: 1.4rem; }
+
+    /* Gallery */
+    .mosaic{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: .9rem;
+    }
+    .tile{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(220px 160px at 20% 25%, rgba(126,232,250,.35), transparent 65%),
+        radial-gradient(240px 180px at 80% 70%, rgba(166,255,203,.28), transparent 62%),
+        radial-gradient(200px 160px at 50% 50%, rgba(255,255,255,.10), transparent 55%),
+        rgba(255,255,255,.04);
+      box-shadow: 0 12px 38px rgba(0,0,0,.22);
+      min-height: 160px;
+      position: relative;
+      overflow:hidden;
+    }
+    .tile::after{
+      content:"";
+      position:absolute; inset: -30%;
+      background:
+        conic-gradient(from 180deg at 50% 50%,
+          rgba(255,255,255,.00),
+          rgba(126,232,250,.12),
+          rgba(166,255,203,.10),
+          rgba(255,255,255,.00));
+      opacity: .9;
+      filter: blur(2px);
+    }
+    .tile span{
+      position:absolute; left: 14px; bottom: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,.9);
+      text-shadow: 0 10px 25px rgba(0,0,0,.55);
+      letter-spacing:.2px;
+      z-index: 2;
+    }
+
+    .tile.a{ grid-column: span 7; min-height: 220px; }
+    .tile.b{ grid-column: span 5; min-height: 220px; }
+    .tile.c{ grid-column: span 4; }
+    .tile.d{ grid-column: span 4; }
+    .tile.e{ grid-column: span 4; }
+
+    /* Pricing */
+    .priceCard{
+      grid-column: span 4;
+      padding: 1.35rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.16);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow:hidden;
+    }
+    .priceCard.featured{
+      border-color: rgba(126,232,250,.36);
+      background:
+        radial-gradient(600px 250px at 30% 0%, rgba(126,232,250,.18), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+    }
+    .badge{
+      position:absolute;
+      top: 16px; right: 16px;
+      font-size:.85rem;
+      color: rgba(255,255,255,.9);
+      background: rgba(126,232,250,.16);
+      border: 1px solid rgba(126,232,250,.28);
+      padding: .35rem .6rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .priceTop{ display:flex; justify-content: space-between; gap:1rem; align-items:flex-start; }
+    .priceCard h3{ margin: .1rem 0; }
+    .price{
+      margin: .55rem 0 .15rem;
+      font-size: 2rem;
+      font-weight: 820;
+      letter-spacing: .2px;
+    }
+    .price small{ font-size: .95rem; color: var(--muted); font-weight: 600; }
+    .list{
+      margin: .9rem 0 1.1rem; padding-left: 1.05rem;
+      color: var(--muted);
+    }
+    .list li{ margin: .4rem 0; }
+    .priceCard .btn{ width: 100%; }
+
+    /* Booking / Calendly */
+    .booking{
+      padding: 1.4rem;
+    }
+    .calWrap{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .calTop{
+      padding: 1.1rem 1.2rem .85rem;
+      border-bottom: 1px solid var(--line);
+      display:flex; justify-content: space-between; align-items:flex-start; gap:1rem;
+    }
+    .calTop p{ margin:.2rem 0 0; color: var(--muted); max-width: 70ch; }
+    .calTop .btn{ box-shadow: none; }
+
+    /* Footer */
+    footer{
+      padding: 2rem 0 2.6rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .footGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 1rem;
+      align-items:start;
+    }
+    .footGrid strong{ color: var(--text); }
+    .footLinks{
+      display:flex; flex-wrap:wrap; gap:.65rem;
+      justify-content:flex-end;
+    }
+    .footLinks a{
+      padding:.4rem .6rem;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      color: var(--muted);
+    }
+    .footLinks a:hover{ border-color: var(--line); background: rgba(255,255,255,.04); color: var(--text); }
+
+    /* Mobile */
+    @media (max-width: 920px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .meta{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr; }
+      .card{ grid-column: span 6; }
+      .priceCard{ grid-column: span 6; }
+      .tile.a, .tile.b{ grid-column: span 12; }
+      .tile.c, .tile.d, .tile.e{ grid-column: span 6; }
+      .footGrid{ grid-template-columns: 1fr; }
+      .footLinks{ justify-content:flex-start; }
+    }
+    @media (max-width: 640px){
+      .links{ display:none; }
+      .menuBtn{ display:inline-flex; align-items:center; justify-content:center; }
+      .mobileMenu{
+        display:none;
+        padding: .25rem 0 1rem;
+      }
+      .mobileMenu.open{ display:block; }
+      .mobileMenu a{
+        display:block;
+        padding: .8rem .7rem;
+        border-radius: 14px;
+        color: var(--muted);
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.03);
+        margin-top: .6rem;
+        font-weight: 650;
+      }
+      .mobileMenu a:hover{ color: var(--text); border-color: rgba(255,255,255,.18); }
+      .card{ grid-column: span 12; }
+      .priceCard{ grid-column: span 12; }
+      .tile.c, .tile.d, .tile.e{ grid-column: span 12; }
+      .heroLeft{ padding: 1.6rem 1.35rem 1.45rem; }
+      .heroRight{ padding: 1.15rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header aria-label="Hauptnavigation">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Zur Startseite">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <strong>Atelier Lichtspur</strong><br />
+            <span>Malkurse & Kreativworkshops</span>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Navigation">
+          <a href="#kurs">Kurs</a>
+          <a href="#methodik">Methodik</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#preise">Preise</a>
+          <a href="#buchen">Buchen</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="#buchen" aria-label="Direkt zum Kalender springen">
+            <span aria-hidden="true">🗓️</span> Termin wählen
+          </a>
+          <button class="menuBtn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobileMenu" id="mobileMenu" aria-label="Mobiles Menü">
+        <a href="#kurs">Kurs</a>
+        <a href="#methodik">Methodik</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#preise">Preise</a>
+        <a href="#buchen">Buchen</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap">
+      <section class="hero" aria-label="Einführung">
+        <div class="heroGrid">
+          <div class="panel heroLeft">
+            <div class="kicker"><span class="dot" aria-hidden="true"></span> Kleine Gruppen · Individuelles Feedback · Material vor Ort</div>
+            <h1>Malen lernen – mit System, Intuition und sichtbar schnellen Fortschritten.</h1>
+            <p class="lead">
+              Im Atelier verbinden wir Grundlagen (Komposition, Farbtheorie, Werte/Value, Kantenführung) mit freiem, expressivem Arbeiten.
+              Für Einsteiger:innen ebenso geeignet wie für Fortgeschrittene, die ihre Bildsprache schärfen möchten.
+            </p>
+
+            <div class="heroActions">
+              <a class="btn primary" href="#buchen"><span aria-hidden="true">✨</span> Jetzt Termin buchen</a>
+              <a class="btn" href="#preise"><span aria-hidden="true">💶</span> Preise ansehen</a>
+              <a class="btn" href="#kurs"><span aria-hidden="true">🎨</span> Kursdetails</a>
+            </div>
+
+            <div class="meta" role="list" aria-label="Kursfakten">
+              <div class="pill" role="listitem">
+                <strong>Dauer</strong>
+                <span>90–120 Minuten (je nach Format)</span>
+              </div>
+              <div class="pill" role="listitem">
+                <strong>Level</strong>
+                <span>Basics bis Fortgeschritten</span>
+              </div>
+              <div class="pill" role="listitem">
+                <strong>Techniken</strong>
+                <span>Aquarell · Acryl · Mixed Media</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="panel heroRight" aria-label="Kurzinfos">
+            <div class="miniCard">
+              <h3>Was du mitnimmst</h3>
+              <p>Ein klares Vorgehen: Motivvereinfachung, Farbmischung, Licht/Schatten, Pinselökonomie – plus persönliche Übungsroutine.</p>
+              <div class="swatches" aria-hidden="true">
+                <div class="swatch"></div><div class="swatch"></div><div class="swatch"></div>
+                <div class="swatch"></div><div class="swatch"></div>
+              </div>
+            </div>
+            <div class="miniCard">
+              <h3>Formate</h3>
+              <p>Einzelcoaching, Kleingruppe, Themenworkshop (z. B. Landschaft, Porträt, Urban Sketching, Abstraktion).</p>
+            </div>
+            <div class="miniCard">
+              <h3>Ort</h3>
+              <p>Atelier (vor Ort) oder online via Video – je nach Termin. Details nach Buchung.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="kurs" aria-label="Kursbeschreibung">
+        <div class="sectionHead">
+          <div>
+            <h2>Der Kurs – strukturiert und zugleich künstlerisch offen</h2>
+            <p>Wir arbeiten an Motivverständnis, Bildaufbau und malerischer Entscheidungssicherheit – damit du nicht „herumprobierst“, sondern zielgerichtet malst.</p>
+          </div>
+        </div>
+
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M4 19c4-2 5-3 8-6s4-4 6-8c2 2 2 6 0 10s-6 6-10 4z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 17l-2 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Technik & Handwerk</h3>
+            <p>Pinselhaltung, Kanten, Lasuren, Deckkraft, Texturen. Du lernst, wie Materialverhalten bewusst gesteuert wird.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M3 12h18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M5 19c2-3 5-5 7-5s5 2 7 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Komposition & Blickführung</h3>
+            <p>Wertehierarchie, Schwerpunktsetzung, Negativformen. Aus „viel Detail“ wird ein klares Bildstatement.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s7-4 7-10a7 7 0 0 0-14 0c0 6 7 10 7 10z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 11c1.5-2 4.5-2 6 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Farbtheorie praxisnah</h3>
+            <p>Mischstrategien, Temperatur, Sättigung, Harmonien & Kontraste – für stimmige Paletten ohne „Matsch“.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="methodik" aria-label="Methodik und Ablauf">
+        <div class="sectionHead">
+          <div>
+            <h2>Methodik – Diagnose, Demonstration, Transfer</h2>
+            <p>Wir kombinieren kurze Demos mit gezielten Übungen und konkretem Feedback – damit deine Fortschritte reproduzierbar werden.</p>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="panel">
+            <h3 style="margin:.2rem 0 .35rem;">Ablauf einer Session</h3>
+            <ul class="list">
+              <li><strong>Warm-up</strong> (5–10 min): Linie, Werte, Farbmischung.</li>
+              <li><strong>Mini-Demo</strong> (10–15 min): Technik oder Prinzip am Beispiel.</li>
+              <li><strong>Arbeitsphase</strong> (45–80 min): Du malst, ich coache live.</li>
+              <li><strong>Review</strong> (10–15 min): konkrete nächste Schritte + Übungsplan.</li>
+            </ul>
+            <a class="btn" href="#buchen"><span aria-hidden="true">🖌️</span> Passenden Termin wählen</a>
+          </div>
+
+          <div class="panel">
+            <h3 style="margin:.2rem 0 .35rem;">Für wen ist das ideal?</h3>
+            <p style="color:var(--muted); margin:.25rem 0 0;">
+              Wenn du …<br/>
+              • endlich „sauberer“ malen willst (Werte/Kanten/Materialkontrolle),<br/>
+              • Komposition intuitiver und zugleich planbarer aufbauen möchtest,<br/>
+              • von Referenz zu eigenständigen Motiven kommen willst,<br/>
+              • oder gezielt an einem Stilthema arbeiten möchtest (z. B. Abstraktion, Impression, Urban Sketching).
+            </p>
+            <div style="height:.85rem"></div>
+            <div class="miniCard">
+              <h3>Hinweis zu Materialien</h3>
+              <p>Material kann gestellt werden. Wenn du eigenes Material nutzt, optimieren wir es gemeinsam (Papier, Pinsel, Palette).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="galerie" aria-label="Galerie">
+        <div class="sectionHead">
+          <div>
+            <h2>Galerie – Beispiele & Themen</h2>
+            <p>Platzhalter-Kacheln (du kannst hier später echte Kursbilder oder Schülerarbeiten einfügen).</p>
+          </div>
+        </div>
+
+        <div class="mosaic" role="list">
+          <div class="tile a" role="listitem"><span>Landschaft & Licht</span></div>
+          <div class="tile b" role="listitem"><span>Porträt & Hauttöne</span></div>
+          <div class="tile c" role="listitem"><span>Urban Sketch</span></div>
+          <div class="tile d" role="listitem"><span>Abstraktion</span></div>
+          <div class="tile e" role="listitem"><span>Mixed Media</span></div>
+        </div>
+      </section>
+
+      <section id="preise" aria-label="Preise">
+        <div class="sectionHead">
+          <div>
+            <h2>Preise – transparent & flexibel</h2>
+            <p>Du kannst die Texte/Preise beliebig anpassen. Der Buchungsbutton führt direkt zum Kalender.</p>
+          </div>
+        </div>
+
+        <div class="grid" role="list">
+          <article class="priceCard" role="listitem">
+            <div class="priceTop">
+              <div>
+                <h3>Einsteiger-Session</h3>
+                <div class="price">49 € <small>/ 90 min</small></div>
+              </div>
+            </div>
+            <ul class="list">
+              <li>Grundlagen: Werte, Kanten, Farbpalette</li>
+              <li>Kurze Demo + Übungsblatt</li>
+              <li>Material optional gestellt</li>
+            </ul>
+            <a class="btn" href="#buchen"><span aria-hidden="true">🗓️</span> Termin buchen</a>
+          </article>
+
+          <article class="priceCard featured" role="listitem">
+            <div class="badge">Beliebt</div>
+            <div class="priceTop">
+              <div>
+                <h3>Coaching (1:1)</h3>
+                <div class="price">79 € <small>/ 120 min</small></div>
+              </div>
+            </div>
+            <ul class="list">
+              <li>Individuelle Zielsetzung & Bildanalyse</li>
+              <li>Technik-Feinschliff + Stilentwicklung</li>
+              <li>Übungsplan für 2–3 Wochen</li>
+            </ul>
+            <a class="btn primary" href="#buchen"><span aria-hidden="true">✨</span> Coaching buchen</a>
+          </article>
+
+          <article class="priceCard" role="listitem">
+            <div class="priceTop">
+              <div>
+                <h3>Kleingruppe</h3>
+                <div class="price">29 € <small>/ Person</small></div>
+              </div>
+            </div>
+            <ul class="list">
+              <li>Max. 6 Personen</li>
+              <li>Themenabend (z. B. Himmel, Wasser, Bäume)</li>
+              <li>Gemeinsame Bildbesprechung</li>
+            </ul>
+            <a class="btn" href="#buchen"><span aria-hidden="true">👥</span> Gruppen-Termin wählen</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="buchen" aria-label="Buchung">
+        <div class="sectionHead">
+          <div>
+            <h2>Termin buchen</h2>
+            <p>Wähle einen passenden Slot. Der Kalender ist direkt eingebettet – keine Umwege, kein zusätzlicher Login nötig.</p>
+          </div>
+        </div>
+
+        <div class="calWrap" role="region" aria-label="Calendly Buchungskalender">
+          <div class="calTop">
+            <div>
+              <strong style="display:block; font-size:1.05rem;">Buchungs-Kalender</strong>
+              <p>Falls das Widget nicht lädt (z. B. durch Content-Blocker), versuche es in einem privaten Fenster oder erlaube Drittanbieter-Skripte.</p>
+            </div>
+            <a class="btn" href="https://calendly.com/lasse-teunis/neues-meeting" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">↗</span> In neuem Tab öffnen
+            </a>
+          </div>
+
+          <div class="booking">
+            <!-- Calendly Inline-Widget Beginn -->
+            <div class="calendly-inline-widget"
+                 data-url="https://calendly.com/lasse-teunis/neues-meeting"
+                 style="min-width:320px;height:700px;">
+            </div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly Inline-Widget Ende -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer aria-label="Footer">
+    <div class="wrap">
+      <div class="footGrid">
+        <div>
+          <strong>Atelier Lichtspur</strong><br/>
+          <span>
+            © <span id="year"></span> · Malkurse & Workshops ·
+            <a href="#buchen" style="color:var(--text); text-decoration: underline; text-underline-offset: 3px;">Terminbuchung</a>
+          </span>
+          <div style="height:.6rem"></div>
+          <span style="display:block;">
+            <strong>Kontakt (Platzhalter):</strong> hello@atelier-lichtspur.de · +49 000 000000
+          </span>
+        </div>
+
+        <div class="footLinks" aria-label="Footer-Links">
+          <a href="#kurs">Kurs</a>
+          <a href="#methodik">Methodik</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#preise">Preise</a>
+          <a href="#buchen">Buchen</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Jahr im Footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile Menü
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      // Menü schließen, wenn ein Link geklickt wird
+      mobileMenu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          menuBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+  </script>
+</body>
+</html>
